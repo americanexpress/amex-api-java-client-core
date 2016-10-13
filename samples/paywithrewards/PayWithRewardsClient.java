@@ -34,7 +34,7 @@ public class PayWithRewardsClient {
 
 	private static final String CLIENT_ID = "YOUR CLIENT ID";
 	private static final String CLIENT_SECRET = "YOUR CLIENT SECRET_KEY";
-	private static final String SEARCH_REWARDS_RESOURCE_URL = "https://api.qasb.americanexpress.com/risk/fraud/v1/enhanced_authorizations/online_purchases";
+	private static final String SEARCH_REWARDS_RESOURCE_URL = "https://api.qasb.americanexpress.com/loyalty/v1/accounts/rewards/search";
 	private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
 	
     public String searchRewards(String searchPayload) throws IOException {

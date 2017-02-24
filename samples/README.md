@@ -6,5 +6,6 @@ The samples below use the **amex-api-java-client-core** library to call several 
 * [Amex Card Application Offers](amexcardapplicationoffers)
 * [Enhanced Authorization](enhancedauthorization)
 * [Pay With Rewards](paywithrewards)
+* [Amex B2B Payments](amexb2bpayments)
 
 

@@ -34,7 +34,6 @@ public class AmexB2BReconcileClient {
 
 	private static final String CLIENT_ID = "YOUR CLIENT ID";
 	private static final String CLIENT_SECRET = "YOUR CLIENT SECRET_KEY";
-	private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
 	
 	private static final String ORGANIZATION_STATUS_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations/%s/status";
 	private static final String ACCOUNT_STATUS_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations/%s/accounts/%s/status";

@@ -37,7 +37,7 @@ public class AmexB2BOnboardingClient {
 	
 	private static final String CLIENT_ID = "YOUR CLIENT ID";
 	private static final String CLIENT_SECRET = "YOUR CLIENT SECRET_KEY";
-	private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
+	private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/vnd.amex.ace.organization.v2.hal+json; charset=utf-8");
 	
 	private static final String ENROLL_ORG_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations";
 	private static final String UPDATE_ORG_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations/%s";

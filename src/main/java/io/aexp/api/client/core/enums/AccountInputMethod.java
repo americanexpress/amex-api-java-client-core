@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 American Express Travel Related Services Company, Inc.
+ * Copyright (c) 2017 American Express Travel Related Services Company, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -12,15 +12,18 @@
  * the License.
  */
 
-package io.aexp.api.client.core.security.authentication;
+package io.aexp.api.client.core.enums;
 
-/**
- * Required Amex authentication header names.
- *
- */
-public interface AuthHeaderNames {
-	String X_AMEX_API_KEY = "x-amex-api-key";
-	String AUTHORIZATION = "Authorization";
-	String X_AMEX_REQUEST_ID = "x-amex-request-id";
-	String X_AMEX_TOKENREQUESTER_ID = "x-amex-token-requester-id";
+public enum AccountInputMethod {
+    ON_FILE("On File"), USER_INPUT("User Input");
+
+    private final String value;
+
+    AccountInputMethod(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

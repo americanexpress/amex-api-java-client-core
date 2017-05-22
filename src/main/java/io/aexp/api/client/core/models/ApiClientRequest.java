@@ -12,15 +12,14 @@
  * the License.
  */
 
-package io.aexp.api.client.core.security.authentication;
+package io.aexp.api.client.core.models;
 
-/**
- * Required Amex authentication header names.
- *
- */
-public interface AuthHeaderNames {
-	String X_AMEX_API_KEY = "x-amex-api-key";
-	String AUTHORIZATION = "Authorization";
-	String X_AMEX_REQUEST_ID = "x-amex-request-id";
-	String X_AMEX_TOKENREQUESTER_ID = "x-amex-token-requester-id";
+public abstract class ApiClientRequest {
+    abstract public String toJson(String kid, String aesKey);
+    abstract public String getUri();
+    abstract public String getHttpAction();
+
+    public String toJson() {
+        return toJson(null, null);
+    }
 }

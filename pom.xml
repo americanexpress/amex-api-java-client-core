@@ -63,6 +63,12 @@
 			<version>3.7.0</version>
 			<scope>test</scope>
 		</dependency>
+	        <dependency>
+			<groupId>rg.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>3.0.24</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

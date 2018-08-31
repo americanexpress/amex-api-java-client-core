@@ -64,7 +64,7 @@
 			<scope>test</scope>
 		</dependency>
 	        <dependency>
-			<groupId>rg.codehaus.plexus</groupId>
+			<groupId>org.codehaus.plexus</groupId>
 			<artifactId>plexus-utils</artifactId>
 			<version>3.0.24</version>
 			<scope>test</scope>

@@ -136,8 +136,10 @@ public class ApiClient {
             HttpPost httpPost = new HttpPost(request.getUri());
             if (signingAlgorithm != null && signingKeyId != null && signingKeyStr != null && encryptionKeyId != null &&
                     encryptionKeyStr != null) {
-                payload = EncryptionUtility.getInstance().sign(signingAlgorithm, signingKeyId, signingKeyStr,
-                        request.toJson(encryptionKeyId, encryptionKeyStr));
+                payload = EncryptionUtility.getInstance()
+                  .sign(signingAlgorithm, signingKeyId, signingKeyStr, request.toJson(encryptionKeyId, encryptionKeyStr));
+            } else if (encryptionKeyId != null && encryptionKeyStr != null) {
+                payload = request.toJson(encryptionKeyId, encryptionKeyStr);
             } else {
                 payload = request.toJson();
             }
@@ -188,6 +190,8 @@ public class ApiClient {
             if (tokenRequesterId != null && !"".equalsIgnoreCase(tokenRequesterId)) {
                 httpRequest.addHeader(AuthHeaderNames.X_AMEX_TOKENREQUESTER_ID, tokenRequesterId);
             }
+
+            httpRequest.addHeader("Content-Language", "en-US");
 
             HttpResponse response = httpClient.execute(httpHost, httpRequest);
 

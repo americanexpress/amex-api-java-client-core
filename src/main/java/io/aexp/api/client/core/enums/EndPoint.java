@@ -16,7 +16,8 @@ package io.aexp.api.client.core.enums;
 
 public enum EndPoint {
 
-    SANDBOX("https", "api.qasb.americanexpress.com", 443),
+  SANDBOX("https", "api.qasb.americanexpress.com", 443),
+  QA("https", "api.qa.americanexpress.com", 443),
     PRODUCTION("https", "api.americanexpress.com", 443);
 
     private final String scheme;

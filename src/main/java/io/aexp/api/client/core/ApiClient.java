@@ -196,6 +196,7 @@ public class ApiClient {
             HttpResponse response = httpClient.execute(httpHost, httpRequest);
 
             if (response != null && response.getStatusLine().getStatusCode() != 200) {
+              System.out.println(EntityUtils.toString(response.getEntity()));
                 throw new ExecutorException("Received http status from server: " +
                         response.getStatusLine().getStatusCode());
             }
@@ -246,7 +247,7 @@ public class ApiClient {
                     .setConnectionRequestTimeout((timeout != null) ? timeout : DEFAULT_TIMEOUT)
                     .setSocketTimeout((timeout != null) ? timeout : DEFAULT_TIMEOUT)
                     .build();
-            httpClient = HttpClients.custom().setConnectionManager(poolingHttpClientConnectionManager)
+            httpClient = HttpClients.custom().useSystemProperties().setConnectionManager(poolingHttpClientConnectionManager)
                     .setDefaultRequestConfig(requestConfig).build();
         } catch (Exception ex) {
             httpClient = HttpClients.createDefault();

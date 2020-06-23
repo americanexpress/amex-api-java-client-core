@@ -35,8 +35,6 @@ public class AmexTokenizationClient {
     private static final String CLIENT_SECRET = "YOUR CLIENT SECRET";
     private static final String ENCRYPTION_KEY = "YOUR ENCRYPTION KEY";
     private static final String ENCRYPTION_KID = "YOUR ENCRYPTION KEY ID";
-    private static final String SIGNING_KEY = "YOUR SIGNING SHARED SECRET";
-    private static final String SIGNING_KID = "YOUR SIGNING SHARED SECRET KEY ID";
     private static final String TOKEN_REQUESTER_ID = "YOUR ASSIGNED TOKEN REQUESTER ID";
 
 
@@ -53,7 +51,6 @@ public class AmexTokenizationClient {
                 .setEndpoint(EndPoint.SANDBOX)
                 .setTokenRequesterId(TOKEN_REQUESTER_ID)
                 .setEncryptionInformation(ENCRYPTION_KID, ENCRYPTION_KEY)
-                .setSigningInformation("HS256", SIGNING_KID, SIGNING_KEY)
                 .setTimeout(15000)
                 .createDevPortalExecutor();
 

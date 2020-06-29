@@ -213,7 +213,7 @@ public class ApiClient {
 
         try {
 
-            final SSLContext sslcontext = SSLContexts.custom().useProtocol("TLSv1.2").build();
+            final SSLContext sslcontext = SSLContexts.custom().setProtocol("TLSv1.2").build();
             SSLConnectionSocketFactory sslConnectionFactory = new SSLConnectionSocketFactory(sslcontext) {
 
                 @Override

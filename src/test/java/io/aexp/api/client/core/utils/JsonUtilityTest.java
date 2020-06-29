@@ -28,7 +28,7 @@ public class JsonUtilityTest {
 
     @Test
     public void getString() {
-        Map<String,String>map = new HashMap<String, String>();
+        Map<String,String>map = new HashMap<>();
 
         assertEquals("{ }", jsonUtility.getString(map));
     }
@@ -40,7 +40,7 @@ public class JsonUtilityTest {
 
     @Test
     public void getObject() {
-        Map<String,String>map = jsonUtility.getObject("{ }", Map.class);
+        Map map = jsonUtility.getObject("{ }", Map.class);
 
         assertNotNull(map);
         assertEquals(0, map.size());
@@ -56,7 +56,7 @@ public class JsonUtilityTest {
         String pretty = jsonUtility.prettyString("{\"key\":\"value\" }");
 
         assertNotNull(pretty);
-        assertEquals("{\n  \"key\" : \"value\"\n}", pretty);
+        assertEquals("{"+ System.lineSeparator() + "  \"key\" : \"value\""+ System.lineSeparator() + "}", pretty);
     }
     @Test
     public void prettyStringInvalid() {

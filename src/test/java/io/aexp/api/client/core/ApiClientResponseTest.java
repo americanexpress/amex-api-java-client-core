@@ -47,7 +47,7 @@ public class ApiClientResponseTest {
         ApiClientResponse response = new ApiClientResponse(headers, "{\"key\":\"value\"}");
 
         assertEquals("12345", response.getHeader("session_id"));
-        assertEquals("{\n  \"key\" : \"value\"\n}", response.toJson());
+        assertEquals("{"+ System.lineSeparator() + "  \"key\" : \"value\""+ System.lineSeparator() + "}", response.toJson());
         assertEquals("value", response.getField("key"));
     }
 

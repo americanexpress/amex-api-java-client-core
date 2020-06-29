@@ -269,7 +269,7 @@ public class SandboxTest {
 
         Request.Builder builder = new Request.Builder()
                 .url(httpUrlBuilder.build())
-                .post(RequestBody.create(JSON_MEDIA_TYPE, payload));
+                .post(RequestBody.create(payload, JSON_MEDIA_TYPE));
 
         for (Map.Entry<String, String> header : headers.entrySet()) {
             System.out.println(header.getKey() + " = " + header.getValue());
@@ -297,7 +297,7 @@ public class SandboxTest {
 
         Request.Builder builder = new Request.Builder()
                 .url(httpUrlBuilder.build())
-                .delete(RequestBody.create(JSON_MEDIA_TYPE, payload));
+                .delete(RequestBody.create(payload, JSON_MEDIA_TYPE));
 
         for (Map.Entry<String, String> header : headers.entrySet()) {
             System.out.println(header.getKey() + " = " + header.getValue());
@@ -325,7 +325,7 @@ public class SandboxTest {
 
         Request.Builder builder = new Request.Builder()
                 .url(httpUrlBuilder.build())
-                .put(RequestBody.create(JSON_MEDIA_TYPE, payload));
+                .put(RequestBody.create(payload, JSON_MEDIA_TYPE));
 
         for (Map.Entry<String, String> header : headers.entrySet()) {
             System.out.println(header.getKey() + " = " + header.getValue());

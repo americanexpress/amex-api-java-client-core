@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.aexp.amex-api-client-core</groupId>
 	<artifactId>amex-api-client-core</artifactId>
-	<version>0.1</version>
+	<version>0.1.swtpoc</version>
 	<packaging>jar</packaging>
 	<name>core</name>
 
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.6</version>
+			<version>1.60</version>
 		</dependency>
 		<dependency>
 			<groupId>com.nimbusds</groupId>
@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.8.8</version>
+			<version>2.9.6</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

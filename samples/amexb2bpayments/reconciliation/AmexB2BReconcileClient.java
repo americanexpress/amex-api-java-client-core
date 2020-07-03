@@ -40,7 +40,7 @@ public class AmexB2BReconcileClient {
 	private static final String PAYMENT_STATUS_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations/%s/payments/%s/status";
 	private static final String ORG_EXCEPTION_RESOURCE_URL = "https://api.qasb.americanexpress.com/b2bcommerce/v2/organizations/%s/exceptions";
 	
-	public void reconcileClientRequests(String organizationId, String accountId, String paymentId) {
+	public void reconcileClientRequests(String organizationId, String accountId, String paymentId) throws IOException {
 		String orgStatusURL = String.format(ORGANIZATION_STATUS_RESOURCE_URL, organizationId);
 		String accStatusURL = String.format(ACCOUNT_STATUS_RESOURCE_URL, organizationId, accountId);	
 		String payStatusURL = String.format(PAYMENT_STATUS_RESOURCE_URL, organizationId, paymentId);
@@ -61,7 +61,7 @@ public class AmexB2BReconcileClient {
     	String orgExceptionResp = sendReconcileRequest(properties, "ORG_EXCEPTION_RESOURCE_URL");
 	}
 	
-	public String sendReconcileRequest(Properties properties, String urlConstant) {
+	public String sendReconcileRequest(Properties properties, String urlConstant) throws IOException {
         PropertiesConfigurationProvider configurationProvider = new PropertiesConfigurationProvider();
         configurationProvider.setProperties(properties);
         

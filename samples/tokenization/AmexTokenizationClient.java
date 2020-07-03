@@ -37,7 +37,6 @@ public class AmexTokenizationClient {
     private static final String ENCRYPTION_KID = "YOUR ENCRYPTION KEY ID";
     private static final String TOKEN_REQUESTER_ID = "YOUR ASSIGNED TOKEN REQUESTER ID";
 
-
     public ApiClientResponse provisioning(String accountNumber, int expiryMonth, int expiryYear, String userEmailId,
                                           String userName, String userPhone, String postalCode) {
         Properties properties = new Properties();
@@ -48,7 +47,7 @@ public class AmexTokenizationClient {
 
 
         ApiClient client = new ApiClient.DevPortalExecutorBuilder()
-                .setEndpoint(EndPoint.SANDBOX)
+                .setEndpoint(EndPoint.QA)
                 .setTokenRequesterId(TOKEN_REQUESTER_ID)
                 .setEncryptionInformation(ENCRYPTION_KID, ENCRYPTION_KEY)
                 .setTimeout(15000)
@@ -56,13 +55,13 @@ public class AmexTokenizationClient {
 
 
         ProvisioningRequest provisioningRequest = new ProvisioningRequest.ProvisioningRequestBuilder()
-                .setAccountNumber("371111111111111")
-                .setExpiryMonth(12)
-                .setExpiryYear(2030)
-                .setUserEmailId("emailId")
-                .setUserName("first|middle|last")
-                .setUserPhoneNumber("+0011112224444")
-                .setPostalCode("11111")
+                .setAccountNumber(accountNumber)
+                .setExpiryMonth(expiryMonth)
+                .setExpiryYear(expiryYear)
+                .setUserEmailId(userEmailId)
+                .setUserName(userName)
+                .setUserPhoneNumber(userPhone)
+                .setPostalCode(postalCode)
                 .setAccountInputMethod(AccountInputMethod.ON_FILE)
                 .createProvisioningRequest();
 
@@ -82,7 +81,7 @@ public class AmexTokenizationClient {
         configurationProvider.setProperties(properties);
 
         ApiClient client = new ApiClient.DevPortalExecutorBuilder()
-                .setEndpoint(EndPoint.SANDBOX)
+                .setEndpoint(EndPoint.QA)
                 .setTokenRequesterId(TOKEN_REQUESTER_ID)
                 .setTimeout(15000)
                 .createDevPortalExecutor();
@@ -108,7 +107,7 @@ public class AmexTokenizationClient {
         configurationProvider.setProperties(properties);
 
         ApiClient client = new ApiClient.DevPortalExecutorBuilder()
-                .setEndpoint(EndPoint.SANDBOX)
+                .setEndpoint(EndPoint.QA)
                 .setTokenRequesterId(TOKEN_REQUESTER_ID)
                 .setTimeout(15000)
                 .createDevPortalExecutor();
@@ -133,7 +132,7 @@ public class AmexTokenizationClient {
         configurationProvider.setProperties(properties);
 
         ApiClient client = new ApiClient.DevPortalExecutorBuilder()
-                .setEndpoint(EndPoint.SANDBOX)
+                .setEndpoint(EndPoint.QA)
                 .setTokenRequesterId(TOKEN_REQUESTER_ID)
                 .createDevPortalExecutor();
 
@@ -149,4 +148,29 @@ public class AmexTokenizationClient {
         return client.execute(metaDataRequest, authProvider);
     }
 
+  public static void main(String args[]) {
+    AmexTokenizationClient client = new AmexTokenizationClient();
+
+    ApiClientResponse response = client.provisioning("371111111111111", 12, 2020,"nobody@netcetera.com",
+      "first|middle|last", "+0011112224444", "11111");
+    System.out.println("Answer=" + response.toJson());
+    System.out.println("TokenData=" + response.getDecryptedField(ENCRYPTION_KEY, "secure_token_data"));
+  }
+////
+//  public static void main(String args[]) {
+//    AmexTokenizationClient client = new AmexTokenizationClient();
+//    System.out.println(client.metadata("379970315676848").toJson());
+//  }
+
+
+//    public static void main(String args[]) {
+//      AmexTokenizationClient client = new AmexTokenizationClient();
+//      System.out.println(client.status("124123").toJson());
+//    }
+
+
+    /*  public static void main(String args[]) {
+        AmexTokenizationClient client = new AmexTokenizationClient();
+        System.out.println(client.notifications("4444", NotificationType.RESUME).toJson());
+      }*/
 }
